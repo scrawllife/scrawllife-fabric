@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = {
+export = {
   extends: [
     "airbnb",
     "prettier",
@@ -9,14 +9,14 @@ module.exports = {
     "plugin:eslint-comments/recommended",
     "plugin:jest/recommended",
     "prettier/react",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
   ],
   plugins: [
     "@typescript-eslint",
     "eslint-comments",
     "jest",
     "unicorn",
-    "react-hooks"
+    "react-hooks",
   ],
   env: {
     browser: true,
@@ -24,7 +24,7 @@ module.exports = {
     es6: true,
     mocha: true,
     jest: true,
-    jasmine: true
+    jasmine: true,
   },
   rules: {
     "react/jsx-wrap-multilines": 0,
@@ -38,8 +38,13 @@ module.exports = {
       2,
       {
         optionalDependencies: true,
-        devDependencies: ["**/tests/**.js", "/mock/**/**.js", "**/**.test.js", '**/_mock.{ts,js}']
-      }
+        devDependencies: [
+          "**/tests/**.js",
+          "/mock/**/**.js",
+          "**/**.test.js",
+          "**/_mock.{ts,js}",
+        ],
+      },
     ],
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "jsx-a11y/click-events-have-key-events": 0,
@@ -56,16 +61,16 @@ module.exports = {
     // Use function hoisting to improve code readability
     "no-use-before-define": [
       "error",
-      { functions: false, classes: true, variables: true }
+      { functions: false, classes: true, variables: true },
     ],
     // Makes no sense to allow type inferrence for expression parameters, but require typing the response
     "@typescript-eslint/explicit-function-return-type": [
       "off",
-      { allowTypedFunctionExpressions: true }
+      { allowTypedFunctionExpressions: true },
     ],
     "@typescript-eslint/no-use-before-define": [
       "error",
-      { functions: false, classes: true, variables: true, typedefs: true }
+      { functions: false, classes: true, variables: true, typedefs: true },
     ],
     // Common abbreviations are known and readable
     "unicorn/prevent-abbreviations": "off",
@@ -78,11 +83,11 @@ module.exports = {
     "arrow-body-style": ["error", "as-needed"],
     "object-curly-newline": 0,
     "implicit-arrow-linebreak": 0,
-    "operator-linebreak": 0
+    "operator-linebreak": 0,
   },
   settings: {
     // support import modules from TypeScript files in JavaScript files
     "import/resolver": { node: { extensions: [".js", ".ts", ".tsx"] } },
-    polyfills: ["fetch", "Promise", "URL", "object-assign"]
-  }
+    polyfills: ["fetch", "Promise", "URL", "object-assign"],
+  },
 };
