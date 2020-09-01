@@ -3,12 +3,12 @@
 import fs from "fs";
 import path from "path";
 
-var parserOptions = {
+const parserOptions = {
   project: "./tsconfig.json",
 };
 
 if (!fs.existsSync(path.join(process.env.PWD || ".", "./tsconfig.json"))) {
-  parserOptions = {
+  Object.assign(parserOptions, {
     tsconfigRootDir: __dirname,
     project: "./tsconfig.json",
     /**
@@ -21,7 +21,7 @@ if (!fs.existsSync(path.join(process.env.PWD || ".", "./tsconfig.json"))) {
      * See the project section above for more information.projecttsconfig.json
      */
     createDefaultProgram: true,
-  };
+  });
 }
 
 export = {
