@@ -2,12 +2,18 @@
 
 export = {
   extends: [
-    "airbnb-base",
-    "airbnb-typescript",
     require.resolve("./eslint"),
+    "airbnb",
+    "airbnb-typescript",
     "prettier/react",
   ],
-  plugins: ["react-hooks"],
+  plugins: [
+    "@typescript-eslint",
+    "eslint-comments",
+    "jest",
+    "unicorn",
+    "react-hooks",
+  ],
   env: {
     browser: true,
     node: true,
