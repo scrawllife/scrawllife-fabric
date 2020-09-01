@@ -2,22 +2,13 @@
 
 export = {
   extends: [
+    require.resolve("./eslint"),
     "airbnb",
     "prettier",
     "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:eslint-comments/recommended",
-    "plugin:jest/recommended",
     "prettier/react",
-    "prettier/@typescript-eslint",
   ],
-  plugins: [
-    "@typescript-eslint",
-    "eslint-comments",
-    "jest",
-    "unicorn",
-    "react-hooks",
-  ],
+  plugins: ["react-hooks"],
   env: {
     browser: true,
     node: true,
