@@ -1,6 +1,6 @@
 {
   "name": "@scrawllife/fabric",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "main": "dist/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zuigzm/scrawllife-fabric.git"
+    "url": "git+https://github.com/scrawllife/scrawllife-fabric.git"
   },
   "keywords": [
     "eslint",
@@ -26,9 +26,9 @@
   "author": "zuigzm@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zuigzm/scrawllife-fabric/issues"
+    "url": "https://github.com/scrawllife/scrawllife-fabric/issues"
   },
-  "homepage": "https://github.com/zuigzm/scrawllife-fabric#readme",
+  "homepage": "https://github.com/scrawllife/scrawllife-fabric#readme",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^3.10.0",
     "@typescript-eslint/parser": "canary",
