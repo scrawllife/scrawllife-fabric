@@ -1,11 +1,11 @@
 {
   "name": "@scrawllife/fabric",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc --build tsconfig.json",
     "prepublishOnly": "npm run build"
   },
   "files": [

@@ -1,14 +1,18 @@
 "use strict";
 // eslint ts es
-import fs from "fs";
-import path from "path";
+import * as fs from "fs";
+import * as path from "path";
 
-const parserOptions = {
+let parserOptions: {
+  tsconfigRootDir?: string;
+  project?: string;
+  createDefaultProgram?: boolean;
+} = {
   project: "./tsconfig.json",
 };
 
 if (!fs.existsSync(path.join(process.env.PWD || ".", "./tsconfig.json"))) {
-  Object.assign(parserOptions, {
+  parserOptions = {
     tsconfigRootDir: __dirname,
     project: "./tsconfig.json",
     /**
@@ -21,7 +25,7 @@ if (!fs.existsSync(path.join(process.env.PWD || ".", "./tsconfig.json"))) {
      * See the project section above for more information.projecttsconfig.json
      */
     createDefaultProgram: true,
-  });
+  };
 }
 
 export = {
