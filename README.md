@@ -1,5 +1,6 @@
 # scrawllife-fabric
 
+一个包含 prettier，eslint，stylelint 的配置文件合集
 Migrated to the new github [fabric](https://github.com/scrawllife/scrawllife-fabric)
 
 ### 安装

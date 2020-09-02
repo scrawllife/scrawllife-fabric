@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run build",
     "build": "tsc --build tsconfig.json",
-    "prepublishOnly": "npm run build"
+    "lint": "npm run build && cd example && npm run lint",
+    "prepublishOnly": "npm run build && npm test && np --no-cleanup --yolo --no-publish --any-branch"
   },
   "files": [
     "dist"
@@ -17,11 +18,7 @@
   },
   "keywords": [
     "eslint",
-    "prettier",
-    "antd",
-    "ant",
-    "design",
-    "pro"
+    "prettier"
   ],
   "author": "zuigzm@gmail.com",
   "license": "ISC",
@@ -58,6 +55,6 @@
     "stylelint-order": "^4.1.0"
   },
   "devDependencies": {
-    "typescript": "^4.0.2"
+    "typescript": "3.8.3"
   }
 }
