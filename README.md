@@ -7,5 +7,40 @@ Migrated to the new github [fabric](https://github.com/scrawllife/scrawllife-fab
 
 ```bash
 yarn add -D @scrawllife/fabric
-yarn add -D eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-unicorn
+```
+
+### 使用
+
+in `.eslintrc.js`
+
+```js
+module.exports = {
+  extends: [require.resolve('@scrawllife/fabric/dist/eslint')],
+  rules: {
+    // your rules
+  },
+};
+```
+
+in `.stylelintrc.js`
+
+```js
+module.exports = {
+  extends: [require.resolve('@scrawllife/fabric/dist/stylelint')],
+  rules: {
+    // your rules
+  },
+};
+```
+
+
+in `.prettierrc.js`
+
+```js
+const fabric = require('@scrawllife/fabric');
+
+module.exports = {
+  ...fabric.prettier,
+};
+
 ```
