@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/scrawllife/scrawllife-fabric#readme",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.10.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "canary",
     "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",
