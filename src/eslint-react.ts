@@ -50,19 +50,20 @@ export = {
     "react/destructuring-assignment": "off",
     "react/jsx-filename-extension": "off",
     // Use function hoisting to improve code readability
-    "no-use-before-define": [
-      "error",
-      { functions: false, classes: true, variables: true },
-    ],
+    // "no-use-before-define": [
+    //   "error",
+    //   { functions: false, classes: true, variables: true },
+    // ],
+    // "@typescript-eslint/no-use-before-define": [
+    //   "error",
+    //   { functions: false, classes: true, variables: true, typedefs: true },
+    // ],
     // Makes no sense to allow type inferrence for expression parameters, but require typing the response
     "@typescript-eslint/explicit-function-return-type": [
       "off",
       { allowTypedFunctionExpressions: true },
     ],
-    "@typescript-eslint/no-use-before-define": [
-      "error",
-      { functions: false, classes: true, variables: true, typedefs: true },
-    ],
+
     // Common abbreviations are known and readable
     "unicorn/prevent-abbreviations": "off",
     "@typescript-eslint/explicit-member-accessibility": 0,

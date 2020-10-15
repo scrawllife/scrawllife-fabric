@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default (): React.ReactElement => (
+const app: React.FC = () => (
   <div>
     <div>修改</div>
   </div>
 );
+
+export default app;
