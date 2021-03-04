@@ -3,38 +3,62 @@
 import * as path from "path";
 import * as fs from "fs";
 
-let parserOptions: {
-  tsconfigRootDir?: string;
-  project?: string;
-  createDefaultProgram?: boolean;
-} = {
+const parserOptions = {
+  ecmaFeatures: {
+    jsx: true,
+  },
+  babelOptions: {
+    presets: [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript",
+    ],
+    plugins: [
+      ["@babel/plugin-proposal-decorators", { legacy: true }],
+      ["@babel/plugin-proposal-class-properties", { loose: true }],
+    ],
+  },
+  requireConfigFile: false,
   project: "./tsconfig.json",
 };
 
-if (!fs.existsSync(path.join(process.env.PWD || ".", "./tsconfig.json"))) {
-  parserOptions = {
-    tsconfigRootDir: __dirname,
-    project: "./tsconfig.json",
-    /**
-     * parserOptions.createDefaultProgram
-     * Default .false
-     * This option allows you to request that when the setting is specified,
-     * files will be allowed when not included in the projects defined by the provided files.
-     * Using this option will incur significant performance costs.
-     * This option is primarily included for backwards-compatibility.
-     * See the project section above for more information.projecttsconfig.json
-     */
-    createDefaultProgram: true,
-  };
+const isJsMoreTs = async (path = "src") => {
+  const fg = require("fast-glob");
+  const jsFiles = await fg(`${path}/src/**/*.{js,jsx}`, { deep: 3 });
+  const tsFiles = await fg(`${path}/src/**/*.{ts,tsx}`, { deep: 3 });
+  return jsFiles.length > tsFiles.length;
+};
+
+const configPath = path.join(__dirname, "fabric.rc");
+const isTsProject = fs.existsSync(
+  path.join(process.cwd() || ".", "./tsconfig.json")
+);
+
+if (isTsProject) {
+  try {
+    if (
+      !fs.existsSync(configPath) &&
+      fs.existsSync(path.join("configPath", ".."))
+    ) {
+      isJsMoreTs(configPath).then((jsMoreTs) => {
+        fs.writeFileSync(configPath, new Date().getDate().toString());
+        if (!jsMoreTs) return;
+        console.log("这是一个 TypeScript 项目，如果不是请删除 tsconfig.json");
+      });
+    } else {
+      const cacheTime = fs.readFileSync(configPath).toString();
+      if (new Date().getDate() !== parseInt(cacheTime, 10)) {
+        fs.unlink(configPath, () => {});
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 module.exports = {
-  extends: [
-    "airbnb",
-    "airbnb-typescript",
-    "prettier",
-    "prettier/@typescript-eslint",
-  ],
+  extends: ["airbnb-typescript", "plugin:prettier/recommended"],
+  parser: "@typescript-eslint/parser",
   plugins: ["eslint-comments", "jest", "unicorn"],
   env: {
     browser: true,
@@ -116,6 +140,9 @@ module.exports = {
     // support import modules from TypeScript files in JavaScript files
     "import/resolver": {
       node: { extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"] },
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"],
     },
     polyfills: ["fetch", "Promise", "URL", "object-assign"],
   },

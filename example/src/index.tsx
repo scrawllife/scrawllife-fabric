@@ -1,6 +1,8 @@
 import React from 'react';
 
-const app: React.FC = () => (
+interface Props {}
+
+const app: React.FC<Props> = () => (
   <div>
     <div>修改</div>
   </div>

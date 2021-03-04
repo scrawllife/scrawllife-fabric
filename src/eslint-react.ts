@@ -1,13 +1,7 @@
 // eslint react
 
 export = {
-  extends: [
-    require.resolve("./eslint"),
-    "airbnb",
-    "prettier",
-    "airbnb-typescript",
-    "prettier/react",
-  ],
+  extends: [require.resolve("./eslint")],
   plugins: ["react-hooks"],
   env: {
     browser: true,
